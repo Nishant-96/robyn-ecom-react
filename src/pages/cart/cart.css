@@ -37,13 +37,10 @@
   border-radius: 2px;
   background-color: var(--whitesmoke);
   box-shadow: 0px 0px 0.1rem var(--lightBlue);
-  /* etest */
-  /* margin-right: 5rem; */
 }
 
 .cart-body-wrapper-price > div {
   text-align: center;
-  /* margin-bottom: 0.5; */
 }
 
 @media screen and (max-width: 560px) {

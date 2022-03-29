@@ -1,5 +1,5 @@
 import "./App.css";
-// import Footer from "./components/footer/footer";
+
 import Navbar from "./components/navbar/navbar";
 import Home from "./pages/homepage/home.jsx";
 import Wishlist from "./pages/wishlist/wishlist";
