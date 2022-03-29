@@ -1,0 +1,83 @@
+:root {
+  --black: #202020;
+  --white: #fefefe;
+  --whitesmoke: whitesmoke;
+  --primary: #4110f8;
+  --red: #e02522;
+  --lightBlue: #78909c;
+  --background: #e4dcda;
+  --lightGreen:#3bb57c;
+}
+
+.navigation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  border-bottom: 2px solid var(--primary);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.navigation-header-left {
+  height: 5.625rem;
+}
+
+.navigation-header-right {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.navigation-logo {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+.navigation-button {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 40px;
+}
+
+.navigation-button:hover {
+  filter: none;
+}
+
+.navigation-search {
+  outline: none;
+  border: none;
+  border-bottom: solid 2px var(--primary);
+  color: var(--black);
+  font-weight: bold;
+  background-color: transparent;
+  width: 12rem;
+}
+
+.navigation-search:focus {
+  width: 20rem;
+  transition: width 1.5s;
+}
+
+@media screen and (max-width: 600px) {
+  .navigation-search:focus {
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation-search {
+    display: none;
+  }
+  .navigation-button {
+    height: 35px;
+    width: 35px;
+  }
+}
