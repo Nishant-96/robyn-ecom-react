@@ -1,0 +1,65 @@
+.authentication-body {
+  margin-top: 5.75rem;
+  flex-basis: calc(100vh - 120px);
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-inline: auto;
+  width: max-content;
+  max-width: 35rem;
+  padding: 2rem;
+  gap: 1rem;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0.1rem var(--lightBlue);
+  margin-top: 2rem;
+}
+
+.login-wrapper > h3,
+.login-wrapper > h4,
+.login-wrapper-content > h4 {
+  text-align: center;
+}
+
+.login-wrapper-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.login-wrapper-content > label {
+  font-weight: 500;
+}
+
+.login-wrapper-content > input {
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.5rem 0;
+  border: 2px solid;
+}
+
+.login-wrapper-content > div {
+  display: flex;
+  gap: 5rem;
+}
+
+.login-wrapper-content > div > a {
+  text-decoration: none;
+}
+
+.login-wrapper-content > a {
+  text-align: center;
+  text-decoration: none;
+}
+
+.signup-wrapper {
+  width: 30%;
+  min-width: max-content;
+}
+
+.check {
+  margin-inline: unset;
+}
