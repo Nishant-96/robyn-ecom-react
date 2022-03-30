@@ -12,8 +12,8 @@ function CategoryCard() {
           alt="category"
           src="https://i.annihil.us/u/prod/marvel/i/mg/4/70/61f018d6d9799/portrait_uncanny.jpg"
         />
-        <div class="category-card-text">
-          <h3 class="color-white">Horror</h3>
+        <div className="category-card-text">
+          <h3 className="color-white">Horror</h3>
         </div>
       </div>
     </Link>

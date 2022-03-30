@@ -4,7 +4,7 @@ import "./cart-card.css";
 function CartCard() {
   return (
     <div className="cart-card">
-      <div class="card-horizontal card-shadow cart-card-wrapper">
+      <div className="card-horizontal card-shadow cart-card-wrapper">
         <div>
           <img
             className="image-responsive cart-card-img"
@@ -16,7 +16,7 @@ function CartCard() {
         <div className="cart-card-description">
           <h3>ROBYN NAME</h3>
           <div>Category</div>
-          <div class="product-card-price">
+          <div className="product-card-price">
             <span>Rs 700</span>
             <p>Rs 500</p>
             <span>50% off</span>

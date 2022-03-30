@@ -19,7 +19,7 @@ export function ProductListing() {
           </div>
           <input
             type="range"
-            class="slider slider-primary slider-circle rr-slider"
+            className="slider slider-primary slider-circle rr-slider"
             min="200"
             max="5000"
           />

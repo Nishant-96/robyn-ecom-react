@@ -6,7 +6,7 @@ import "./product-card.css";
 function ProductCard() {
   return (
     <div className="product-card">
-      <div class="card product-card-wrapper">
+      <div className="card product-card-wrapper">
         <div>
           <img
             className="image-responsive"
@@ -18,7 +18,7 @@ function ProductCard() {
           <FavoriteIcon className="product-card-like-button" />
           <h4>Product Name</h4>
           <p>Author</p>
-          <div class="product-card-price">
+          <div className="product-card-price">
             <span>Rs 700</span>
             <p>Rs 500</p>
             <span>50% off</span>

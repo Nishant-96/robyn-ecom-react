@@ -14,11 +14,11 @@ export function Home() {
           src="Images/1.png"
         />
 
-        <div class="home-landing-title">
+        <div className="home-landing-title">
           <h1>ROBYN READS</h1>
           <h3>Explore the World of Comics Here.</h3>
           <Link to="/product-listing">
-            <button class="btn btn-primary home-landing-title-btn">
+            <button className="btn btn-primary home-landing-title-btn">
               Explore Now
             </button>
           </Link>
@@ -39,4 +39,4 @@ export function Home() {
   );
 }
 
-// ex Home;
+
