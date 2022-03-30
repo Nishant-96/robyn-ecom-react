@@ -2,7 +2,7 @@ import React from "react";
 
 import "./authentication.css";
 import { Link } from "react-router-dom";
-function Login() {
+export function Login() {
   return (
     <div className="authentication-body">
       <div className="login-wrapper">
@@ -40,4 +40,3 @@ function Login() {
   );
 }
 
-export default Login;

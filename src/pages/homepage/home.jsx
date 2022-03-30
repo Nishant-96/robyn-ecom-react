@@ -4,7 +4,7 @@ import CategoryCard from "./components/category-card";
 import "./home.css";
 import { Link } from "react-router-dom";
 
-function Home() {
+export function Home() {
   return (
     <div className="home-body">
       <div className="home-body-background-container">
@@ -39,4 +39,4 @@ function Home() {
   );
 }
 
-export default Home;
+// ex Home;

@@ -1,10 +1,9 @@
-import { Checkbox } from "@mui/material";
+
 import React from "react";
-import CartCard from "../cart/components/cart-card";
 import ProductCard from "./components/product-card";
 
 import "./product-listing.css";
-function ProductListing() {
+export function ProductListing() {
   return (
     <div className="productlisting-body">
       <aside className="productlisting-body-sidenav">
@@ -99,5 +98,3 @@ function ProductListing() {
     </div>
   );
 }
-
-export default ProductListing;

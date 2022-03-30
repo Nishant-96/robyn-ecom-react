@@ -2,7 +2,7 @@ import React from "react";
 
 import "./authentication.css";
 import { Link } from "react-router-dom";
-function SignUp() {
+export function SignUp() {
   return (
     <div className="authentication-body">
       <div className="login-wrapper signup-wrapper">
@@ -49,5 +49,3 @@ function SignUp() {
     </div>
   );
 }
-
-export default SignUp;

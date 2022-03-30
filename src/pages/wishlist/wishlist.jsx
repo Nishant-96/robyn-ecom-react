@@ -3,7 +3,7 @@ import React from "react";
 import ProductCard from "../product-listing/components/product-card";
 import "./wishlist.css";
 import { Link } from "react-router-dom";
-function Wishlist() {
+export function Wishlist() {
   //this decide which to render
   const flag = true;
 
@@ -42,4 +42,4 @@ function Wishlist() {
   }
 }
 
-export default Wishlist;
+

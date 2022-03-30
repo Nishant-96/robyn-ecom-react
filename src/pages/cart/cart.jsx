@@ -3,7 +3,7 @@ import React from "react";
 import "./cart.css";
 import CartCard from "./components/cart-card";
 import { Link } from "react-router-dom";
-function Cart() {
+export function Cart() {
   // This variable triggers which page to render
   const flag = false;
 
@@ -53,4 +53,3 @@ function Cart() {
   }
 }
 
-export default Cart;

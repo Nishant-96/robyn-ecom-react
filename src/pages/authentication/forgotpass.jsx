@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Forgot() {
+export function Forgot() {
   return (
     <div className="authentication-body">
       <div className="login-wrapper">
@@ -32,4 +32,3 @@ function Forgot() {
   );
 }
 
-export default Forgot;
