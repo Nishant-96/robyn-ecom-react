@@ -1,13 +1,8 @@
-import "./App.css";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
+import "./App.css";
 import Navbar from "./components/navbar/navbar";
-// import Home from "./pages/homepage/home.jsx";
-// import Wishlist from "./pages/wishlist/wishlist";
-// import Cart from "./pages/cart/cart.jsx";
-// import ProductListing from "./pages/product-listing/product-listing";
-// import Login from "./pages/authentication/login";
-// import SignUp from "./pages/authentication/signup";
-// import Forgot from "./pages/authentication/forgotpass";
 import {
   Home,
   ProductListing,
@@ -21,6 +16,11 @@ import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 
 function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="App">
       <Navbar />
