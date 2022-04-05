@@ -1,10 +1,13 @@
 import React from "react";
-import CategoryCard from "./components/category-card";
-
-import "./home.css";
 import { Link } from "react-router-dom";
 
+import { useFilter } from "../../context/filter-context";
+import CategoryCard from "./components/category-card";
+import "./home.css";
+
 export function Home() {
+  const { state } = useFilter();
+
   return (
     <div className="home-body">
       <div className="home-body-background-container">
@@ -28,15 +31,11 @@ export function Home() {
       <div className="home-body-categories">
         <h1>Featured Categories</h1>
         <div>
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
+          {state.defaultCategories.map((currentEl) => {
+            return <CategoryCard key={currentEl._id} category={currentEl} />;
+          })}
         </div>
       </div>
     </div>
   );
 }
-
-
