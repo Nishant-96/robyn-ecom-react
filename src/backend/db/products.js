@@ -12,7 +12,7 @@ export const products = [
     author: "Joe Kelly",
     category: ["Superhero", "Horror", "Science Fiction"],
     imgUrl:
-      "https://i.annihil.us/u/prod/marvel/i/mg/4/70/61f018d6d9799/clean.jpg",
+      "https://i.annihil.us/u/prod/marvel/i/mg/3/d0/60464e1695be7/clean.jpg",
     newprice: 329,
     originalPrice: 500,
     rating: 4.5,
@@ -24,10 +24,9 @@ export const products = [
     name: "Ghost Rider",
     author: "Benjamin Percy",
     category: ["Superhero", "Horror", "Science Fiction"],
-    imgUrl:
-      "https://i.annihil.us/u/prod/marvel/i/mg/5/e0/623b2da3833b6/clean.jpg",
+    imgUrl: "https://images-na.ssl-images-amazon.com/images/I/81HOHp3nwWL.jpg",
     newprice: 429,
-    orignalPrice: 550,
+    originalPrice: 550,
     rating: 4,
     description:
       "The FBI assigns a team to investigate a recent surge in supernatural activity. A darkness is rising, and their hunt for answers puts them on a collision course with a mysterious, vengeful motorcyclist. Who is this so-called Ghost Rider, and what does he want? They follow rumors. They follow wreckage. And they discover the dark secrets of a roadside motel.",
@@ -38,7 +37,7 @@ export const products = [
     author: "Naoki Urasawa",
     category: ["Manga", "Science Fiction"],
     imgUrl:
-      "https://static3.cbrimages.com/wordpress/wp-content/uploads/2020/05/Pluto-manga-Urasawa.jpg",
+      "https://i.annihil.us/u/prod/marvel/i/mg/a/50/589deadf64259/clean.jpg",
     newprice: 249,
     originalPrice: 380,
     rating: 3.9,
@@ -51,9 +50,9 @@ export const products = [
     author: "Sam Hamm",
     category: ["Superhero", "Horror", "Science Fiction"],
     imgUrl:
-      "https://www.dccomics.com/sites/default/files/Gallery_20210810_BM89_Cv1_00111_6101e8472f1778.51939640.jpg",
+      "https://i.annihil.us/u/prod/marvel/i/mg/3/d0/60464e1695be7/clean.jpg",
     newprice: 829,
-    orignalPrice: 1000,
+    originalPrice: 1000,
     rating: 4.8,
     description:
       "Step back into the Gotham of Tim Burton seminal classic Batman movies! Batman 89 brings in screenwriter Sam Hamm (Batman, Batman Returns) and artist Joe Quinones (Dial H for Hero) to pull on a number of threads left dangling by the prolific director. Gotham becomes torn in two as citizens dressed as Batman and The Joker duke it out in the streets. As D.A. Harvey Dent tries to keep the city together, he targets the one problem tearing it apart: BATMAN! And he will get Bruce Waynes help in taking down the Dark Knight.",
@@ -64,7 +63,7 @@ export const products = [
     author: "Joe Orlando",
     category: ["Superhero", "Humor"],
     imgUrl:
-      "https://static.wikia.nocookie.net/marvel_dc/images/8/89/Inferior_Five_0001.jpg",
+      "https://i.annihil.us/u/prod/marvel/i/mg/a/50/589deadf64259/clean.jpg",
     newprice: 229,
     originalPrice: 400,
     rating: 3.8,
@@ -76,8 +75,7 @@ export const products = [
     name: "One Punch-Man ",
     author: "One",
     category: ["Manga", "Superhero", "Humor"],
-    imgUrl:
-      "https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/05/One-Punch-Man-Saitama-Cropped.jpg",
+    imgUrl: "https://images-na.ssl-images-amazon.com/images/I/81HOHp3nwWL.jpg",
     newprice: 149,
     originalPrice: 280,
     rating: 2.8,
@@ -89,8 +87,7 @@ export const products = [
     name: "Infidel",
     author: "Pornsak Pichetshote",
     category: ["Horror"],
-    imgUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/514gQvbFZwL._SX323_BO1,204,203,200_.jpg",
+    imgUrl: "https://images-na.ssl-images-amazon.com/images/I/81HOHp3nwWL.jpg",
     newprice: 309,
     originalPrice: 400,
     rating: 2.9,
@@ -103,7 +100,7 @@ export const products = [
     author: "Kris Wilson",
     category: ["Humor"],
     imgUrl:
-      "https://m.media-amazon.com/images/P/B003V1WT9A.01._SCLZZZZZZZ_SX500_.jpg",
+      "https://i.annihil.us/u/prod/marvel/i/mg/9/50/623b2dbd2579d/clean.jpg",
     newprice: 209,
     originalPrice: 300,
     rating: 1.9,
@@ -116,7 +113,7 @@ export const products = [
     author: "Kelly Thompson",
     category: ["Humor"],
     imgUrl:
-      "https://i.annihil.us/u/prod/marvel/i/mg/9/50/623b2dbd2579d/clean.jpg",
+      "https://i.annihil.us/u/prod/marvel/i/mg/3/d0/60464e1695be7/clean.jpg",
     newprice: 428,
     originalPrice: 600,
     rating: 3.4,
@@ -129,7 +126,7 @@ export const products = [
     author: "Saladin Ahmed",
     category: ["Superhero", "Science Fiction"],
     imgUrl:
-      "https://i.annihil.us/u/prod/marvel/i/mg/c/40/623b2d9e7d2bc/clean.jpg",
+      "https://i.annihil.us/u/prod/marvel/i/mg/a/50/589deadf64259/clean.jpg",
     newprice: 309,
     originalPrice: 550,
     rating: 2.7,
@@ -155,7 +152,7 @@ export const products = [
     author: "George Perez",
     category: ["Superhero", "Science Fiction"],
     imgUrl:
-      "https://i.pinimg.com/originals/11/06/21/1106216e4592542725ec177365c5b290.png",
+      "https://i.annihil.us/u/prod/marvel/i/mg/3/d0/60464e1695be7/clean.jpg",
     newprice: 400,
     originalPrice: 550,
     rating: 4.2,
@@ -181,7 +178,7 @@ export const products = [
     author: "Gill Kane",
     category: ["Superhero"],
     imgUrl:
-      "https://www.dccomics.com/sites/default/files/HJFLC_Cv1_R3_gallery_57fc3635f2c6a2.45566872.jpg",
+      "https://i.annihil.us/u/prod/marvel/i/mg/a/50/589deadf64259/clean.jpg",
     newprice: 380,
     originalPrice: 600,
     rating: 3.1,
