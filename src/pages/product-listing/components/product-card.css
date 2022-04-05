@@ -81,3 +81,19 @@
   color: var(--primary);
   background-color: transparent;
 }
+
+.product-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-card-header-rating {
+  display: flex;
+  align-items: center;
+}
+
+.product-card-header-rating > svg {
+  color: var(--primary);
+  margin-bottom: 1px;
+  font-size: 1.2rem;
+}
