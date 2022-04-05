@@ -35,6 +35,16 @@
   justify-content: space-between;
 }
 
+.productlisting-body-sidenav-header > span {
+  font-weight: 500;
+  text-decoration: 1px underline;
+}
+
+.productlisting-body-sidenav-header > span:hover {
+  color: var(--primary);
+  cursor: pointer;
+}
+
 .productlisting-body-sidenav-categories,
 .productlisting-body-sidenav-sort,
 .productlisting-body-sidenav-rating,
