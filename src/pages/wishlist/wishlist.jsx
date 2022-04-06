@@ -3,11 +3,13 @@ import React from "react";
 import ProductCard from "../product-listing/components/product-card";
 import "./wishlist.css";
 import { Link } from "react-router-dom";
+import { useFilter } from "../../context/filter-context";
 export function Wishlist() {
-  //this decide which to render
-  const flag = true;
+  const { state } = useFilter();
 
-  if (!flag) {
+  const wishlistArray = state.wishlistItems.filter((curr) => curr.inWishlist);
+
+  if (wishlistArray.length === 0) {
     return (
       <div className="wishlist-body">
         <div className="wishlist-body-empty">
@@ -28,9 +30,11 @@ export function Wishlist() {
   } else {
     return (
       <div className="wishlist-body">
-        <h2>My Wishlist (items)</h2>
+        <h2>My Wishlist</h2>
         <div className="wishlist-body-wrapper">
-          <ProductCard />
+          {wishlistArray.map((currEl) => (
+            <ProductCard key={currEl._id} product={currEl} />
+          ))}
           {/* Dummy cards */}
           <div className="product-card"></div>
           <div className="product-card"></div>
@@ -41,5 +45,3 @@ export function Wishlist() {
     );
   }
 }
-
-

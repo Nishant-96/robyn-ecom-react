@@ -10,6 +10,7 @@ function reducerFunc(state, action) {
         defaultItems: action.payload.productsList,
         defaultCategories: action.payload.categoriesList,
         filteredItems: action.payload.productsList,
+        wishlistItems: action.payload.productsList,
       };
 
     case "CATEGORIES_FILTER":
@@ -62,6 +63,17 @@ function reducerFunc(state, action) {
       };
       break;
 
+    case "MOVE_TO_WISHLIST":
+      state = {
+        ...state,
+        wishlistItems: state.wishlistItems.map((curr) => {
+          if (curr._id === action.payload.id) {
+            return { ...curr, inWishlist: !curr.inWishlist };
+          }
+          return curr;
+        }),
+      };
+      break;
     default:
       break;
   }
@@ -93,7 +105,6 @@ function reducerFunc(state, action) {
       filteredItems: sortingFilter(state, state.selectedSort),
     };
   }
-
   return { ...state };
 }
 

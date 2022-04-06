@@ -3,7 +3,10 @@ import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import "./product-card.css";
+import { useFilter } from "../../../context/filter-context";
 function ProductCard({ product: productProps }) {
+  const { dispatch } = useFilter();
+
   return (
     <div className="product-card">
       <div className="card product-card-wrapper">
@@ -15,7 +18,15 @@ function ProductCard({ product: productProps }) {
           />
         </div>
         <div className="product-card-wrapper-details">
-          <FavoriteIcon className="product-card-like-button" />
+          <FavoriteIcon
+            className="product-card-like-button"
+            onClick={() => {
+              dispatch({
+                type: "MOVE_TO_WISHLIST",
+                payload: { id: productProps._id },
+              });
+            }}
+          />
           <h4>{productProps.name}</h4>
           <div className="product-card-header">
             <p>{productProps.author}</p>

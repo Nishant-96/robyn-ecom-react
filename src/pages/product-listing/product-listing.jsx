@@ -2,7 +2,6 @@ import ProductCard from "./components/product-card";
 import "./product-listing.css";
 import { useFilter } from "../../context/filter-context";
 export function ProductListing() {
-
   const { state, dispatch } = useFilter();
 
   return (
@@ -27,12 +26,11 @@ export function ProductListing() {
           <input
             type="range"
             name="price-range"
-            className="slider slider-primary slider-circle check"
+            className="slider slider-primary slider-circle sidenav-slider"
             min="100"
             max="1000"
             value={state.maxPriceRange}
             onChange={(event) => {
-      
               dispatch({
                 type: "RANGE_FILTER",
                 payload: { value: Number(event.target.value) },
@@ -92,7 +90,6 @@ export function ProductListing() {
               value="high-to-low"
               checked={state.selectedSort === "high-to-low" ? true : false}
               onChange={(event) => {
-              
                 dispatch({
                   type: "SORTING_FILTER",
                   payload: { value: event.target.value },
@@ -127,7 +124,6 @@ export function ProductListing() {
       </aside>
       <div className="productlisting-body-content">
         {state.filteredItems.map((currentEl) => {
-      
           return <ProductCard key={currentEl._id} product={currentEl} />;
         })}
         {/* Dummy cards for better alignment */}
