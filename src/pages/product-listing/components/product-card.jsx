@@ -24,7 +24,6 @@ function ProductCard({ product: productProps }) {
                 ? "product-card-like-button product-card-liked"
                 : "product-card-like-button"
             }
-            // className={productProps.inWishlist ? "product-card-liked" : null}
             onClick={() => {
               dispatch({
                 type: "MOVE_TO_WISHLIST",
