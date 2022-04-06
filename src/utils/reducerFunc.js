@@ -11,6 +11,7 @@ function reducerFunc(state, action) {
         defaultCategories: action.payload.categoriesList,
         filteredItems: action.payload.productsList,
         wishlistItems: action.payload.productsList,
+        cartItems: action.payload.productsList,
       };
 
     case "CATEGORIES_FILTER":
@@ -74,6 +75,91 @@ function reducerFunc(state, action) {
         }),
       };
       break;
+
+    case "ADD_TO_CART":
+      state = {
+        ...state,
+        cartItems: state.cartItems.map((curr) => {
+          if (curr._id === action.payload.id) {
+            return { ...curr, inCart: true, inCartQty: 1 };
+          }
+          return curr;
+        }),
+        wishlistItems: state.wishlistItems.map((curr) => {
+          if (curr._id === action.payload.id) {
+            return { ...curr, inWishlist: false };
+          }
+          return curr;
+        }),
+      };
+
+      break;
+
+    case "CART_TO_WISHLIST":
+      state = {
+        ...state,
+        wishlistItems: state.wishlistItems.map((curr) => {
+          if (curr._id === action.payload.id) {
+            return { ...curr, inWishlist: true };
+          }
+          return curr;
+        }),
+        cartItems: state.cartItems.map((curr) => {
+          if (curr._id === action.payload.id) {
+            return { ...curr, inCart: false };
+          }
+          return curr;
+        }),
+      };
+      break;
+
+    case "REMOVE_FROM_CART":
+      state = {
+        ...state,
+        cartItems: state.cartItems.map((curr) => {
+          if (curr._id === action.payload.id) {
+            return { ...curr, inCart: false, inCartQty: 0 };
+          }
+          return curr;
+        }),
+      };
+
+      break;
+
+    case "CART_QTY_INCREMENTER":
+      state = {
+        ...state,
+        cartItems: state.cartItems.map((curr) => {
+          if (curr._id === action.payload.id) {
+            return { ...curr, inCartQty: curr.inCartQty + 1 };
+          }
+          return curr;
+        }),
+      };
+      break;
+
+    case "CART_QTY_DECREMENTER":
+      state = {
+        ...state,
+        cartItems: state.cartItems.map((curr) => {
+          if (curr._id === action.payload.id) {
+            return {
+              ...curr,
+              inCartQty: curr.inCartQty > 1 ? curr.inCartQty - 1 : 1,
+            };
+          }
+          return curr;
+        }),
+      };
+      break;
+
+    case "CLEAR_YOUR_CART":
+      state = {
+        ...state,
+        cartItems: [...state.defaultItems],
+      };
+      break;
+
     default:
       break;
   }

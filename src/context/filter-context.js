@@ -17,6 +17,7 @@ const initialState = {
   selectedPrice: null,
   selectCategoryChecked: null,
   wishlistItems: [],
+  cartItems:[],
 };
 
 const FilterProvider = function ({ children }) {
