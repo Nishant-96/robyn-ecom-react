@@ -1,3 +1,15 @@
+:root {
+  --black: #202020;
+  --white: #fefefe;
+  --whitesmoke: whitesmoke;
+  --primary: #4110f8;
+  --red: #e02522;
+  --lightBlue: #78909c;
+  --background: #e4dcda;
+  --lightGreen: #3bb57c;
+  --gray: #555;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -6,4 +18,21 @@
 
 .mockman {
   margin-top: 6rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--whitesmoke);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }

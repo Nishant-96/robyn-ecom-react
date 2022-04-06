@@ -19,7 +19,11 @@ function ProductCard({ product: productProps }) {
         </div>
         <div className="product-card-wrapper-details">
           <FavoriteIcon
-            className="product-card-like-button"
+            className={
+              productProps.inWishlist
+                ? "product-card-like-button product-card-liked"
+                : "product-card-like-button"
+            }
             onClick={() => {
               dispatch({
                 type: "MOVE_TO_WISHLIST",
@@ -47,8 +51,16 @@ function ProductCard({ product: productProps }) {
             </span>
           </div>
         </div>
-        <button className="btn btn-primary product-card-button">
-          Add To Cart
+        <button
+          className="btn btn-primary product-card-button"
+          onClick={() => {
+            return dispatch({
+              type: "ADD_TO_CART",
+              payload: { id: productProps._id },
+            });
+          }}
+        >
+          {productProps.inWishlist ? "Move To Cart" : "Add To Cart"}
         </button>
       </div>
     </div>

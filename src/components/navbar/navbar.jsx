@@ -1,11 +1,11 @@
 import React from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import LoginIcon from "@mui/icons-material/Login";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
+import InventoryIcon from "@mui/icons-material/Inventory";
 function Navbar() {
   return (
     <div className="navigation">
@@ -27,23 +27,49 @@ function Navbar() {
             placeholder="Search"
           />
 
-          <Link to="/login">
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? "navigation-active" : undefined
+            }
+          >
             <button className="btn btn-float navigation-button">
               <LoginIcon />
             </button>
-          </Link>
+          </NavLink>
 
-          <Link to="/wishlist">
+          <NavLink
+            to="/product-listing"
+            className={({ isActive }) =>
+              isActive ? "navigation-active" : undefined
+            }
+          >
+            <button className="btn btn-float navigation-button">
+              <InventoryIcon />
+            </button>
+          </NavLink>
+
+          <NavLink
+            to="/wishlist"
+            className={({ isActive }) =>
+              isActive ? "navigation-active" : undefined
+            }
+          >
             <button className="btn btn-float navigation-button">
               <FavoriteIcon />
             </button>
-          </Link>
+          </NavLink>
 
-          <Link to="/cart">
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              isActive ? "navigation-active" : undefined
+            }
+          >
             <button className="btn btn-float navigation-button">
               <ShoppingCartIcon />
             </button>
-          </Link>
+          </NavLink>
         </nav>
       </header>
     </div>
