@@ -12,7 +12,6 @@ function CartCard({ product: productProps }) {
             className="image-responsive cart-card-img"
             src={productProps.imgUrl}
             alt="product"
-            s
           />
         </div>
         <div className="cart-card-description">

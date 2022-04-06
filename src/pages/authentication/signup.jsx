@@ -8,28 +8,28 @@ export function SignUp() {
       <div className="login-wrapper signup-wrapper">
         <h3>Sign Up</h3>
         <div className="login-wrapper-content">
-          <label for="username">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="username"
             id="username"
             name="username"
             placeholder="Enter your name"
           />
-          <label for="email">Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="Enter your email"
           />
-          <label for="pwd">Password:</label>
+          <label htmlFor="pwd">Password:</label>
           <input
             type="password"
             id="pwd"
             name="pwd"
             placeholder="Enter Password"
           />
-          <label for="confirm-pwd">Confirm Password:</label>
+          <label htmlFor="confirm-pwd">Confirm Password:</label>
           <input
             type="password"
             id="confirm-pwd"

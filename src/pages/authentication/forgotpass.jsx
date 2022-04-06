@@ -10,7 +10,7 @@ export function Forgot() {
           account.
         </h4>
         <div className="login-wrapper-content">
-          <label for="email">Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"

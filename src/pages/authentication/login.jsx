@@ -8,14 +8,14 @@ export function Login() {
       <div className="login-wrapper">
         <h3>Login</h3>
         <div className="login-wrapper-content">
-          <label for="email">Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="Enter your email"
           />
-          <label for="pwd">Password:</label>
+          <label htmlFor="pwd">Password:</label>
           <input
             type="password"
             id="pwd"
