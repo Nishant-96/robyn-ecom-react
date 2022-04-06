@@ -37,14 +37,19 @@
   border-radius: 2px;
   background-color: var(--whitesmoke);
   box-shadow: 0px 0px 0.1rem var(--lightBlue);
+
+  position: sticky;
+  top: 21%;
 }
 
 .cart-body-wrapper-price > div {
   text-align: center;
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 690px) {
   .cart-body-wrapper-price {
     order: -1;
+    position: unset;
+    top: unset;
   }
 }
