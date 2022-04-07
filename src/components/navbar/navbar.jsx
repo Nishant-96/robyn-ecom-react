@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { useFilter } from "../../context/filter-context";
 
 import LoginIcon from "@mui/icons-material/Login";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import InventoryIcon from "@mui/icons-material/Inventory";
+
 function Navbar() {
+  const { state, dispatch } = useFilter();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  function searchHandler(event) {
+    if (pathname !== "/product-listing") {
+      navigate("/product-listing");
+    }
+    if (event.key === "Enter" || event.key === "Backspace") {
+      dispatch({
+        type: "SEARCH_PRODUCT",
+        payload: { value: event.target.value },
+      });
+    }
+  }
   return (
     <div className="navigation">
       <header className="navigation-header">
@@ -25,6 +42,14 @@ function Navbar() {
             className="navigation-search"
             type="search"
             placeholder="Search"
+            value={state.searchInput}
+            onChange={(event) =>
+              dispatch({
+                type: "SET_SEARCH_INPUT",
+                payload: { value: event.target.value },
+              })
+            }
+            onKeyDown={(event) => searchHandler(event)}
           />
 
           <NavLink
