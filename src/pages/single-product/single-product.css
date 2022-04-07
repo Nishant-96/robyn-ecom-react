@@ -1,0 +1,58 @@
+.sp-body {
+  margin-top: 5.75rem;
+  flex-basis: calc(100vh - 120px);
+}
+
+.sp-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  margin-block: 1rem;
+}
+
+.sp-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  max-width: 30rem;
+}
+
+.sp-content-price {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sp-content-price > * {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.sp-btn {
+  padding-inline: 2.5rem;
+}
+.sp-content-price > p {
+  text-decoration: line-through;
+}
+
+.sp-content-price > span:last-child {
+  color: var(--lightGreen);
+  font-weight: 700;
+}
+
+.sp-content-desc {
+  text-align: justify;
+}
+
+.sp-content-btn {
+  display: flex;
+  gap: 1rem;
+}
+.sp-image {
+  height: 25rem;
+  object-position: center;
+  border-radius: 10px;
+}

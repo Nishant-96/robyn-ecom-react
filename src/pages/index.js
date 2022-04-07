@@ -5,4 +5,4 @@ export { Wishlist } from "./wishlist/wishlist.jsx";
 export { Login } from "./authentication/login.jsx";
 export { SignUp } from "./authentication/signup.jsx";
 export { Forgot } from "./authentication/forgotpass.jsx";
-
+export { Singleproduct } from "./single-product/single-product.jsx";
