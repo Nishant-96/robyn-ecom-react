@@ -160,6 +160,21 @@ function reducerFunc(state, action) {
       };
       break;
 
+    case "SET_SEARCH_INPUT":
+      state = {
+        ...state,
+        searchInput: action.payload.value,
+      };
+      break;
+
+    case "SEARCH_PRODUCT":
+      state = {
+        ...state,
+        searchedProducts: [...state.defaultItems].filter((curr) =>
+          curr.name.toLowerCase().includes(action.payload.value.toLowerCase())
+        ),
+      };
+      break;
     default:
       break;
   }
@@ -171,6 +186,12 @@ function reducerFunc(state, action) {
     };
   }
 
+  if (state.searchedProducts.length > 0) {
+    state = {
+      ...state,
+      filteredItems: [...state.searchedProducts],
+    };
+  }
   if (state.selectedRating) {
     state = {
       ...state,
