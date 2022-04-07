@@ -51,6 +51,11 @@ $ npm start
 
 <br />
 
+## **Demo**
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/87017414/162257761-615321f8-1391-425c-ba8f-45c5d7f8c273.gif)
+
+
+
 ### **Tech Stack**
 
 - React JS
