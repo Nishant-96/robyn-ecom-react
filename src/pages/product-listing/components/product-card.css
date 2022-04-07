@@ -91,6 +91,14 @@
   background-color: transparent;
 }
 
+.product-card-outlined-btn:hover {
+  filter: unset;
+  background-color: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  transition: 0.5s;
+}
+
 .product-card-header {
   display: flex;
   justify-content: space-between;
