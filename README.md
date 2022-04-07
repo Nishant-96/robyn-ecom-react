@@ -11,7 +11,7 @@ Robyn Reads for the Comic OGs.
 ## **Table of contents**
 
 - [Overview](#overview)
-  - [How to run ?](#how)
+  - [How to run ?](#how-to-install-and-run-locally-?)
   - [Features](#features)
  
 
