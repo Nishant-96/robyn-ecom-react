@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./navbar.css";
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { useFilter } from "../../context/filter-context";
