@@ -1,22 +1,23 @@
 import React from "react";
-
+import { useFilter } from "../../../context/filter-context";
+import { Link } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import "./product-card.css";
-import { useFilter } from "../../../context/filter-context";
+
 function ProductCard({ product: productProps }) {
   const { dispatch } = useFilter();
 
   return (
     <div className="product-card">
       <div className="card product-card-wrapper">
-        <div>
+        <Link to={`/single-product/${productProps._id}`}>
           <img
             className="image-responsive"
             src={productProps.imgUrl}
             alt="product"
           />
-        </div>
+        </Link>
         <div className="product-card-wrapper-details">
           <FavoriteIcon
             className={
