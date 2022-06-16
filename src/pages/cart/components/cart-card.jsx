@@ -1,9 +1,19 @@
 import React from "react";
+import { useAuth } from "../../../context/auth-context";
 import { useFilter } from "../../../context/filter-context";
+import {
+  cartItemQtyService,
+  deleteFromCartService,
+  postAddToWishListService,
+} from "../../../utils/services";
 
 import "./cart-card.css";
 function CartCard({ product: productProps }) {
-  const { dispatch } = useFilter();
+  const { state, dispatch } = useFilter();
+  const { token } = useAuth();
+  const isInWishlist = state.wishlistItems.some(
+    (curr) => curr._id === productProps._id
+  );
   return (
     <div className="cart-card">
       <div className="card-horizontal card-shadow cart-card-wrapper">
@@ -31,46 +41,47 @@ function CartCard({ product: productProps }) {
           <div className="cart-card-desc-counter">
             <button
               className="btn btn-primary product-card-button"
-              onClick={() => {
-                return dispatch({
-                  type: "CART_QTY_DECREMENTER",
-                  payload: { id: productProps._id },
-                });
-              }}
+              disabled={productProps.qty > 1 ? false : true}
+              onClick={() =>
+                cartItemQtyService(
+                  token,
+                  productProps._id,
+                  { type: "decrement" },
+                  dispatch
+                )
+              }
             >
               -
             </button>
-            <p>{productProps.inCartQty}</p>
+            <p>{productProps.qty}</p>
             <button
               className="btn btn-primary product-card-button"
-              onClick={() => {
-                return dispatch({
-                  type: "CART_QTY_INCREMENTER",
-                  payload: { id: productProps._id },
-                });
-              }}
+              onClick={() =>
+                cartItemQtyService(
+                  token,
+                  productProps._id,
+                  { type: "increment" },
+                  dispatch
+                )
+              }
             >
               +
             </button>
           </div>
           <button
             className="btn btn-primary product-card-button"
-            onClick={() => {
-              return dispatch({
-                type: "REMOVE_FROM_CART",
-                payload: { id: productProps._id },
-              });
-            }}
+            onClick={() =>
+              deleteFromCartService(token, productProps._id, dispatch)
+            }
           >
             Remove From Cart
           </button>
           <button
             className="btn btn-outlined product-card-outlined-btn "
             onClick={() => {
-              return dispatch({
-                type: "CART_TO_WISHLIST",
-                payload: { id: productProps._id },
-              });
+              !isInWishlist &&
+                postAddToWishListService(token, productProps, dispatch);
+              deleteFromCartService(token, productProps._id, dispatch);
             }}
           >
             Move To Wishlist

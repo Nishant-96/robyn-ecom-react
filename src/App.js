@@ -28,14 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product-listing" element={<ProductListing />} />
-        <Route
-          path="/single-product/:productId"
-          element={
-            <RequireAuth>
-              <Singleproduct />
-            </RequireAuth>
-          }
-        />
+        <Route path="/single-product/:productId" element={<Singleproduct />} />
         <Route
           path="/wishlist"
           element={

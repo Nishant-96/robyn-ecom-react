@@ -2,6 +2,8 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 
 import reducerFunc from "../utils/reducerFunc";
+import { getCartList, getWishList } from "../utils/services";
+import { useAuth } from "./auth-context";
 const FilterContext = createContext();
 
 const useFilter = () => useContext(FilterContext);
@@ -20,11 +22,13 @@ const initialState = {
   cartItems: [],
   searchInput: "",
   searchedProducts: [],
+  wishlistApiFlag: false,
+  cartlistApiFlag: false,
 };
 
 const FilterProvider = function ({ children }) {
   const [state, dispatch] = useReducer(reducerFunc, initialState);
-
+  const { token } = useAuth();
   useEffect(() => {
     (async () => {
       try {
@@ -42,6 +46,16 @@ const FilterProvider = function ({ children }) {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    console.log("run wishlist");
+    token && getWishList(token, dispatch);
+  }, [state.wishlistApiFlag, token, dispatch]);
+
+  useEffect(() => {
+    console.log("run cart");
+    token && getCartList(token, dispatch);
+  }, [state.cartlistApiFlag, token, dispatch]);
 
   return (
     <FilterContext.Provider value={{ state, dispatch }}>
