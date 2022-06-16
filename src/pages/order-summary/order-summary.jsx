@@ -23,10 +23,6 @@ export function OrderSummary() {
     return (acc = acc + curr.qty * curr.newprice);
   }, 150);
 
-  useEffect(() => {
-    getAddressList(token, dispatch);
-  }, [state.addressListApiFlag, token, dispatch]);
-
   const successPayment = () => {
     clearCartItemService(cartListArray, token, dispatch);
     navigate("/product-listing");
@@ -40,6 +36,10 @@ export function OrderSummary() {
       progress: undefined,
     });
   };
+
+  useEffect(() => {
+    getAddressList(token, dispatch);
+  }, [state.addressListApiFlag, token, dispatch]);
 
   return (
     <div className="order-body">
