@@ -78,6 +78,10 @@ function reducerFunc(state, action) {
       state = { ...state, cartlistApiFlag: !state.cartlistApiFlag };
       break;
 
+    case "CLEAR_MY_CART":
+      state = { ...state, cartItems: [...action.payload.value] };
+      break;
+
     case "SET_SEARCH_INPUT":
       state = {
         ...state,

@@ -134,6 +134,7 @@ export const cartItemQtyService = async (
 
 export const clearCartItemService = async (cartArr, token, dispatch) => {
   try {
+    dispatch({ type: "CLEAR_MY_CART", payload: { value: [] } });
     const response = await (async () => {
       for (let item of cartArr) {
         const res = await deleteOneItemFromCart(item._id, token);
