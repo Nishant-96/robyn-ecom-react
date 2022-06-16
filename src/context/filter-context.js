@@ -50,12 +50,10 @@ const FilterProvider = function ({ children }) {
   }, []);
 
   useEffect(() => {
-    console.log("run wishlist");
     token && getWishList(token, dispatch);
   }, [state.wishlistApiFlag, token, dispatch]);
 
   useEffect(() => {
-    console.log("run cart");
     token && getCartList(token, dispatch);
   }, [state.cartlistApiFlag, token, dispatch]);
 

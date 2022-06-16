@@ -39,19 +39,18 @@ function AddressModal({ show, setShow }) {
           pincode: "",
           contact: "",
         });
-        setShow(false);
+        setShow((prev) => ({ ...prev, addressModal: false }));
       }
     } catch (error) {
       console.error(error);
     }
   };
-
-  if (!show) return null;
+  if (!show.addressModal) return null;
   return (
     <div
       className="modal-container"
       onClick={() => {
-        setShow(false);
+        setShow((prev) => ({ ...prev, addressModal: false }));
         setAddressForm({
           name: "",
           street: "",
@@ -72,7 +71,7 @@ function AddressModal({ show, setShow }) {
           <h4 className="">Add New Address</h4>
           <CloseIcon
             onClick={() => {
-              setShow(false);
+              setShow((prev) => ({ ...prev, addressModal: false }));
               setAddressForm({
                 name: "",
                 street: "",

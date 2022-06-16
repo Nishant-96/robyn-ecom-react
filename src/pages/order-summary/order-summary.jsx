@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { useFilter } from "../../context/filter-context";
@@ -9,7 +10,10 @@ import AddressCard from "./components/address-card";
 import AddressModal from "./components/address-form-modal";
 import "./order-summary.css";
 export function OrderSummary() {
-  const [addressModalState, setModalState] = useState(false);
+  const [modalState, setModalState] = useState({
+    addressModal: false,
+    addressSelected: null,
+  });
   const { state, dispatch } = useFilter();
   const { token } = useAuth();
   const navigate = useNavigate();
@@ -26,6 +30,15 @@ export function OrderSummary() {
   const successPayment = () => {
     clearCartItemService(cartListArray, token, dispatch);
     navigate("/product-listing");
+    toast.success(`Success, Order Placed succefully 🎉`, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
@@ -38,12 +51,19 @@ export function OrderSummary() {
             <div className="divider"></div>
             <div className="address-card-wrapper">
               {addressListArr.map((curr) => (
-                <AddressCard addressDetail={curr} key={curr._id} />
+                <AddressCard
+                  addressDetail={curr}
+                  key={curr._id}
+                  addressSelect={modalState}
+                  setAddressSelect={setModalState}
+                />
               ))}
             </div>
             <button
               className="btn btn-primary auth-button"
-              onClick={() => setModalState(true)}
+              onClick={() =>
+                setModalState((prev) => ({ ...prev, addressModal: true }))
+              }
             >
               Add New Address
             </button>
@@ -83,15 +103,20 @@ export function OrderSummary() {
               <div>&#8377;{totalPrice}</div>
             </div>
             <button
-              className="btn btn-primary auth-button"
-              onClick={() => displayRazorpay(totalPrice, successPayment)}
+              className={`btn btn-primary auth-button ${
+                !modalState.addressSelected && "disabled"
+              }`}
+              onClick={() =>
+                modalState.addressSelected &&
+                displayRazorpay(totalPrice, successPayment)
+              }
             >
               Place Order
             </button>
           </div>
         </div>
       </div>
-      <AddressModal show={addressModalState} setShow={setModalState} />
+      <AddressModal show={modalState} setShow={setModalState} />
     </div>
   );
 }

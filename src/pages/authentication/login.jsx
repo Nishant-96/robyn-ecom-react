@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-
-import "./authentication.css";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { formValidationLogin } from "../../utils/validation";
 import { useAuth } from "../../context/auth-context";
+import "./authentication.css";
 export function Login() {
   const { loginHandler } = useAuth();
   const [userDetails, setUserDetails] = useState({
@@ -20,7 +20,15 @@ export function Login() {
         throw new Error(validation.message);
       }
     } catch (error) {
-      console.error(error.message);
+      toast.error(`${error.message}`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 

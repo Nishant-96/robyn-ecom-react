@@ -15,7 +15,7 @@ import {
 } from "./pages";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
-import { Navbar, RequireAuth } from "./components";
+import { Navbar, RequireAuth, Toast } from "./components";
 
 function App() {
   const { pathname } = useLocation();
@@ -26,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Toast />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product-listing" element={<ProductListing />} />

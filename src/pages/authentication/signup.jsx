@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-
-import "./authentication.css";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { formValidationSignUp } from "../../utils/validation";
 import { useAuth } from "../../context/auth-context";
+import "./authentication.css";
 export function SignUp() {
   const { signUpHandler } = useAuth();
   const [userDetails, setUserDetails] = useState({
@@ -27,7 +27,15 @@ export function SignUp() {
         throw new Error(validation.message);
       }
     } catch (error) {
-      console.error(error);
+      toast.error(`${error.message}`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 

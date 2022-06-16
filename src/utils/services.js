@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { toast } from "react-toastify";
 export const getWishList = async (token, dispatch) => {
   try {
     const response = await axios.get("/api/user/wishlist", {
@@ -31,6 +31,15 @@ export const postAddToWishListService = async (token, product, dispatch) => {
     );
     if (response.status === 201) {
       dispatch({ type: "POST_TO_WISHLIST" });
+      toast.success(`Added To Wishlist`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   } catch (error) {
     console.error(error);
@@ -46,6 +55,15 @@ export const deleteFromWishListService = async (token, productId, dispatch) => {
     });
     if (response.status === 200) {
       dispatch({ type: "POST_TO_WISHLIST" });
+      toast.warn(`Removed From wishlist`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   } catch (error) {
     console.error(error);
@@ -83,6 +101,15 @@ export const postAddToCartService = async (token, product, dispatch) => {
     );
     if (response.status === 201) {
       dispatch({ type: "POST_TO_CARTLIST" });
+      toast.success(`Added To Cart`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   } catch (error) {
     console.error(error);
@@ -98,6 +125,15 @@ export const deleteFromCartService = async (token, productId, dispatch) => {
     });
     if (response.status === 200) {
       dispatch({ type: "POST_TO_CARTLIST" });
+      toast.warn(`Removed From Cart`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   } catch (error) {
     console.error(error);
@@ -195,6 +231,15 @@ export const postAddAddressService = async (token, address, dispatch) => {
     );
     if (response.status === 201) {
       dispatch({ type: "POST_TO_ADDRESS_LIST" });
+      toast.success(`Address Added Successfully`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   } catch (error) {
     console.error(error);
