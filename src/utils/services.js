@@ -163,3 +163,40 @@ const deleteOneItemFromCart = async (productId, token) => {
     console.error(error);
   }
 };
+
+export const getAddressList = async (token, dispatch) => {
+  try {
+    const response = await axios.get("/api/user/address", {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      dispatch({
+        type: "GET_ADDRESS_LIST",
+        payload: { value: response.data.address },
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const postAddAddressService = async (token, address, dispatch) => {
+  try {
+    const response = await axios.post(
+      "/api/user/address",
+      { address },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (response.status === 201) {
+      dispatch({ type: "POST_TO_ADDRESS_LIST" });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};

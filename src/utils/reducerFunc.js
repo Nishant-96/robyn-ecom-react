@@ -82,6 +82,14 @@ function reducerFunc(state, action) {
       state = { ...state, cartItems: [...action.payload.value] };
       break;
 
+    case "GET_ADDRESS_LIST":
+      state = { ...state, addressItems: [...action.payload.value] };
+      break;
+
+    case "POST_TO_ADDRESS_LIST":
+      state = { ...state, addressListApiFlag: !state.addressListApiFlag };
+      break;
+
     case "SET_SEARCH_INPUT":
       state = {
         ...state,

@@ -24,6 +24,8 @@ const initialState = {
   searchedProducts: [],
   wishlistApiFlag: false,
   cartlistApiFlag: false,
+  addressItems: [],
+  addressListApiFlag: false,
 };
 
 const FilterProvider = function ({ children }) {

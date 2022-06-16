@@ -11,6 +11,7 @@ import {
   Login,
   SignUp,
   Singleproduct,
+  OrderSummary,
 } from "./pages";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
@@ -38,10 +39,18 @@ function App() {
           }
         />
         <Route
-          path="cart"
+          path="/cart"
           element={
             <RequireAuth>
               <Cart />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/order-summary"
+          element={
+            <RequireAuth>
+              <OrderSummary />
             </RequireAuth>
           }
         />
