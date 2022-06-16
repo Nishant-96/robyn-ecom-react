@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import ProductCard from "../product-listing/components/product-card";
 import "./wishlist.css";
