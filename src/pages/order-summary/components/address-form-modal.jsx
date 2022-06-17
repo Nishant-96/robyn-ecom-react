@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { useFilter } from "../../../context/filter-context";
 import { useAuth } from "../../../context/auth-context";
 import { postAddAddressService } from "../../../utils/services";
@@ -43,6 +44,15 @@ function AddressModal({ show, setShow }) {
       }
     } catch (error) {
       console.error(error);
+      toast.error(`${error.message}`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
   if (!show.addressModal) return null;
