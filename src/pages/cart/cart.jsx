@@ -2,12 +2,16 @@ import React from "react";
 
 import "./cart.css";
 import CartCard from "./components/cart-card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFilter } from "../../context/filter-context";
+import { clearCartItemService } from "../../utils/services";
+import { useAuth } from "../../context/auth-context";
 export function Cart() {
   const { state, dispatch } = useFilter();
+  const { token } = useAuth();
+  const navigate = useNavigate();
 
-  const cartListArray = state.cartItems.filter((curr) => curr.inCart);
+  const cartListArray = [...state.cartItems];
 
   if (cartListArray.length === 0) {
     return (
@@ -42,18 +46,20 @@ export function Cart() {
             <div>
               Sub Total ({`${cartListArray.length} Items`}) :
               {` Rs ${cartListArray.reduce((acc, curr) => {
-                return (acc = acc + curr.inCartQty * curr.newprice);
+                return (acc = acc + curr.qty * curr.newprice);
               }, 0)}`}
             </div>
-            <button className="btn btn-primary product-card-button">
+            <button
+              className="btn btn-primary product-card-button"
+              onClick={() => navigate("/order-summary")}
+            >
               Proceed To Checkout
-            </button>
-            <button className="btn btn-primary product-card-button">
-              Share Your Cart
             </button>
             <button
               className="btn btn-outlined product-card-outlined-btn "
-              onClick={() => dispatch({ type: "CLEAR_YOUR_CART" })}
+              onClick={() =>
+                clearCartItemService(cartListArray, token, dispatch)
+              }
             >
               Clear Your Cart
             </button>

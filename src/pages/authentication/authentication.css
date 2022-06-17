@@ -1,6 +1,7 @@
 .authentication-body {
   margin-top: 5.75rem;
   flex-basis: calc(100vh - 120px);
+  padding: 1.5rem;
 }
 
 .login-wrapper {
@@ -8,13 +9,11 @@
   flex-direction: column;
   justify-content: center;
   margin-inline: auto;
-  width: max-content;
-  max-width: 35rem;
+  max-width: 30rem;
   padding: 2rem;
   gap: 1rem;
   border-radius: 2px;
   box-shadow: 0px 0px 0.1rem var(--lightBlue);
-  margin-top: 2rem;
 }
 
 .login-wrapper > h3,
@@ -55,11 +54,17 @@
   text-decoration: none;
 }
 
-.signup-wrapper {
-  width: 30%;
-  min-width: max-content;
+.auth-button {
+  background-color: var(--primary);
+  color: var(--whitesmoke);
+  border: 2px solid var(--primary);
 }
 
-.check {
-  margin-inline: unset;
+.auth-button:hover {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  -webkit-filter: none;
+  filter: none;
+  transition: 0.5s;
 }

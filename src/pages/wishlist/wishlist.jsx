@@ -4,10 +4,11 @@ import ProductCard from "../product-listing/components/product-card";
 import "./wishlist.css";
 import { Link } from "react-router-dom";
 import { useFilter } from "../../context/filter-context";
+
 export function Wishlist() {
   const { state } = useFilter();
 
-  const wishlistArray = state.wishlistItems.filter((curr) => curr.inWishlist);
+  const wishlistArray = [...state.wishlistItems];
 
   if (wishlistArray.length === 0) {
     return (

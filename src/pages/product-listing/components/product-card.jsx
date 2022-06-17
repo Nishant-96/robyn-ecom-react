@@ -1,12 +1,45 @@
 import React from "react";
 import { useFilter } from "../../../context/filter-context";
-import { Link } from "react-router-dom";
+import {
+  deleteFromWishListService,
+  postAddToCartService,
+  postAddToWishListService,
+} from "../../../utils/services";
+import { useAuth } from "../../../context/auth-context";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import "./product-card.css";
 
 function ProductCard({ product: productProps }) {
-  const { dispatch } = useFilter();
+  const { state, dispatch } = useFilter();
+  const { token } = useAuth();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const isInWishlist = state.wishlistItems.some(
+    (curr) => curr._id === productProps._id
+  );
+  const isInCart = state.cartItems.some(
+    (curr) => curr._id === productProps._id
+  );
+
+  const cartClickHandler = (event) => {
+    if (token) {
+      if (event.target.innerText === "Add To Cart") {
+        postAddToCartService(token, productProps, dispatch);
+      } else if (event.target.innerText === "Move To Cart") {
+        postAddToCartService(token, productProps, dispatch);
+        deleteFromWishListService(token, productProps._id, dispatch);
+      } else {
+        navigate("/cart");
+      }
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="product-card">
@@ -19,19 +52,25 @@ function ProductCard({ product: productProps }) {
           />
         </Link>
         <div className="product-card-wrapper-details">
-          <FavoriteIcon
-            className={
-              productProps.inWishlist
-                ? "product-card-like-button product-card-liked"
-                : "product-card-like-button"
-            }
-            onClick={() => {
-              dispatch({
-                type: "MOVE_TO_WISHLIST",
-                payload: { id: productProps._id },
-              });
-            }}
-          />
+          {isInWishlist ? (
+            <FavoriteIcon
+              className={"product-card-like-button"}
+              onClick={() =>
+                token
+                  ? deleteFromWishListService(token, productProps._id, dispatch)
+                  : navigate("/login")
+              }
+            />
+          ) : (
+            <FavoriteBorderIcon
+              className={"product-card-like-button"}
+              onClick={() => {
+                token
+                  ? postAddToWishListService(token, productProps, dispatch)
+                  : navigate("/login");
+              }}
+            />
+          )}
           <h4>{productProps.name}</h4>
           <div className="product-card-header">
             <p>{productProps.author}</p>
@@ -54,14 +93,17 @@ function ProductCard({ product: productProps }) {
         </div>
         <button
           className="btn btn-primary product-card-button"
-          onClick={() => {
-            return dispatch({
-              type: "ADD_TO_CART",
-              payload: { id: productProps._id },
-            });
+          onClick={(event) => {
+            cartClickHandler(event);
           }}
         >
-          {productProps.inWishlist ? "Move To Cart" : "Add To Cart"}
+          {pathname === "/wishlist"
+            ? isInCart
+              ? "Go To Cart"
+              : "Move To Cart"
+            : isInCart
+            ? "Go To Cart"
+            : "Add To Cart"}
         </button>
       </div>
     </div>

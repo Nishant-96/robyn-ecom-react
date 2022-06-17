@@ -1,14 +1,47 @@
-
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../../context/auth-context";
 import { useFilter } from "../../context/filter-context";
+import {
+  deleteFromWishListService,
+  postAddToCartService,
+  postAddToWishListService,
+} from "../../utils/services";
 import "./single-product.css";
 export function Singleproduct() {
-  const { state } = useFilter();
+  const { state, dispatch } = useFilter();
+  const { token } = useAuth();
   const { productId } = useParams();
-  const { dispatch } = useFilter();
+  const navigate = useNavigate();
+
   const [product] = state.defaultItems.filter((curr) => curr._id === productId);
 
+  const inWishlist = state.wishlistItems.some((curr) => curr._id === productId);
+  const inCart = state.cartItems.some((curr) => curr._id === productId);
+
+  const wishlistClickHandler = () => {
+    if (token) {
+      if (!inWishlist) {
+        postAddToWishListService(token, product, dispatch);
+      } else {
+        deleteFromWishListService(token, productId, dispatch);
+      }
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const cartClickHandler = () => {
+    if (token) {
+      if (!inCart) {
+        postAddToCartService(token, product, dispatch);
+      } else {
+        navigate("/cart");
+      }
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <div className="sp-body">
       <div className="sp-wrapper">
@@ -36,24 +69,18 @@ export function Singleproduct() {
             <button
               className="btn btn-primary product-card-button sp-btn"
               onClick={() => {
-                return dispatch({
-                  type: "ADD_TO_CART",
-                  payload: { id: product._id },
-                });
+                cartClickHandler();
               }}
             >
-              Add To Cart
+              {inCart ? "Go To Cart" : "Add To Cart"}
             </button>
             <button
               className="btn btn-outlined product-card-outlined-btn "
               onClick={() => {
-                return dispatch({
-                  type: "MOVE_TO_WISHLIST",
-                  payload: { id: product._id },
-                });
+                wishlistClickHandler();
               }}
             >
-              Add To Wishlist
+              {inWishlist ? "Remove From Wishlist" : "Add To Wishlist"}
             </button>
           </div>
         </div>
