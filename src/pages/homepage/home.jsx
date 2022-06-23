@@ -19,7 +19,7 @@ export function Home() {
 
         <div className="home-landing-title">
           <h1>ROBYN READS</h1>
-          <h3>Explore the World of Comics Here.</h3>
+          <h3>The Comic Book Store.</h3>
           <Link to="/product-listing">
             <button className="btn btn-primary home-landing-title-btn">
               Explore Now
