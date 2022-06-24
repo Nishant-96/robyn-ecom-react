@@ -9,12 +9,16 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import InventoryIcon from "@mui/icons-material/Inventory";
+import { useEffect } from "react";
 
 export function Navbar() {
   const { state, dispatch } = useFilter();
   const { token, logOutHandler } = useAuth();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
+  const wishlistArray = [...state.wishlistItems];
+  const cartListArray = [...state.cartItems];
 
   function searchHandler(event) {
     if (pathname !== "/product-listing") {
@@ -28,6 +32,10 @@ export function Navbar() {
     }
   }
 
+  useEffect(() => {
+    dispatch({ type: "SET_SEARCH_INPUT", payload: { value: "" } });
+  }, [pathname, dispatch]);
+
   function signClickHandler() {
     if (token) {
       logOutHandler();
@@ -39,7 +47,12 @@ export function Navbar() {
   return (
     <div className="navigation">
       <header className="navigation-header">
-        <div className="navigation-header-left">
+        <div
+          className="navigation-header-left"
+          onClick={() => {
+            dispatch({ type: "CLEAR_FILTER" });
+          }}
+        >
           <Link to="/">
             <img
               className="navigation-logo"
@@ -61,7 +74,7 @@ export function Navbar() {
                 payload: { value: event.target.value },
               })
             }
-            onKeyDown={(event) => searchHandler(event)}
+            onKeyUp={(event) => searchHandler(event)}
           />
 
           <button
@@ -90,6 +103,11 @@ export function Navbar() {
           >
             <button className="btn btn-float navigation-button">
               <FavoriteIcon />
+              {token && wishlistArray?.length > 0 && (
+                <span class="badge icon-btn-pos badge-dnd">
+                  {wishlistArray?.length}
+                </span>
+              )}
             </button>
           </NavLink>
 
@@ -101,6 +119,11 @@ export function Navbar() {
           >
             <button className="btn btn-float navigation-button">
               <ShoppingCartIcon />
+              {token && cartListArray?.length > 0 && (
+                <span class="badge icon-btn-pos badge-dnd">
+                  {cartListArray?.length}
+                </span>
+              )}
             </button>
           </NavLink>
         </nav>
