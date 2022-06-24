@@ -62,12 +62,6 @@ export function Login() {
               }))
             }
           />
-          <div>
-            <label>
-              <input type="checkbox" />
-              Remember Me
-            </label>
-          </div>
           <button
             className="btn btn-primary auth-button "
             onClick={() => loginCLickHandler(userDetails)}

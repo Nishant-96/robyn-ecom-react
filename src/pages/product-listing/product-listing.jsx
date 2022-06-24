@@ -101,7 +101,7 @@ export function ProductListing() {
         </div>
         <div className="productlisting-body-sidenav-rating">
           <h4>Rating</h4>
-          {[4, 3, 2, 1].map((currNum) => {
+          {[4, 3, 2].map((currNum) => {
             return (
               <label key={currNum}>
                 <input

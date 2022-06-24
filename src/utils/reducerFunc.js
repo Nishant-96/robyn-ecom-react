@@ -109,6 +109,13 @@ function reducerFunc(state, action) {
       break;
   }
 
+  if (state.searchedProducts.length > 0) {
+    state = {
+      ...state,
+      filteredItems: [...state.searchedProducts],
+    };
+  }
+
   if (state.selectCategoryChecked !== null) {
     state = {
       ...state,
@@ -116,12 +123,6 @@ function reducerFunc(state, action) {
     };
   }
 
-  if (state.searchedProducts.length > 0) {
-    state = {
-      ...state,
-      filteredItems: [...state.searchedProducts],
-    };
-  }
   if (state.selectedRating) {
     state = {
       ...state,

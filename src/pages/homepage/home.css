@@ -7,6 +7,7 @@
 
 .home-body-background-container {
   position: relative;
+  min-height: 37.5rem;
 }
 
 .home-landing-image {
@@ -65,5 +66,11 @@
 
   .home-landing-image {
     filter: blur(5px);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .home-body-background-container {
+    min-height: unset;
   }
 }

@@ -100,9 +100,6 @@ export function SignUp() {
               }))
             }
           />
-          <label>
-            <input type="checkbox" />I Accept all terms and Conditions
-          </label>
           <button
             className="btn btn-primary auth-button"
             onClick={() => signUpClickHandler(userDetails)}

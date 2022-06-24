@@ -17,7 +17,7 @@ function ProductCard({ product: productProps }) {
   const { state, dispatch } = useFilter();
   const { token } = useAuth();
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const location = useLocation();
 
   const isInWishlist = state.wishlistItems.some(
     (curr) => curr._id === productProps._id
@@ -37,7 +37,10 @@ function ProductCard({ product: productProps }) {
         navigate("/cart");
       }
     } else {
-      navigate("/login");
+      navigate("/login", {
+        replace: true,
+        state: { from: location },
+      });
     }
   };
 
@@ -58,7 +61,10 @@ function ProductCard({ product: productProps }) {
               onClick={() =>
                 token
                   ? deleteFromWishListService(token, productProps._id, dispatch)
-                  : navigate("/login")
+                  : navigate("/login", {
+                      replace: true,
+                      state: { from: location },
+                    })
               }
             />
           ) : (
@@ -67,7 +73,10 @@ function ProductCard({ product: productProps }) {
               onClick={() => {
                 token
                   ? postAddToWishListService(token, productProps, dispatch)
-                  : navigate("/login");
+                  : navigate("/login", {
+                      replace: true,
+                      state: { from: location },
+                    });
               }}
             />
           )}
@@ -97,7 +106,7 @@ function ProductCard({ product: productProps }) {
             cartClickHandler(event);
           }}
         >
-          {pathname === "/wishlist"
+          {location.pathname === "/wishlist"
             ? isInCart
               ? "Go To Cart"
               : "Move To Cart"
